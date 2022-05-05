@@ -1,3 +1,5 @@
+const dotenv = require("dotenv").config({path: "./.env"});
+require("./db/connect");
 const express = require("express");
 const tasksRoutes = require("./routes/tasks");
 
