@@ -5,7 +5,7 @@ const tasksRoutes = require("./routes/tasks");
 const notFound = require("./middleware/notFound");
 const errorHandlerMiddleware = require("./middleware/errorHandler")
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 const app = express();
 
 app.use(express.static("./public"));
