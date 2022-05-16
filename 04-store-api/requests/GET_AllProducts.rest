@@ -1,1 +1,13 @@
-GET http://localhost:3000/api/v1/products?featured=true&name=entertainment
+# GET http://localhost:3000/api/v1/products?featured=true&name=entertainment
+
+# GET http://localhost:3000/api/v1/products?sort=name,-price
+
+# GET http://localhost:3000/api/v1/products?fields=name
+
+# GET http://localhost:3000/api/v1/products?fields=name,price
+
+# GET http://localhost:3000/api/v1/products?sort=name&fields=name,price&limit=20
+
+# GET http://localhost:3000/api/v1/products?sort=name&fields=name,price&limit=20&page=2
+
+GET http://localhost:3000/api/v1/products?sort=price&numericFilters=price>30,rating>=4
