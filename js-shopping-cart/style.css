@@ -1,0 +1,118 @@
+:root {
+    --light-blue: #8ecae6;
+    --medium-blue: #219ebc;
+    --dark-blue: #023047;
+    --light-orange: #ffb703;
+    --medium-orange: #fb8500;
+    --light-grey: #dee2e6;
+    --medium-grey: #adb5bd;
+    --dark-grey: #343a40;
+    --black: #212529;
+    --white: #f8f9fa;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "Cascadia Code", Arial, Helvetica, sans-serif;
+    background: var(--grey);
+    font-size: 1.6rem;
+}
+
+.navbar {
+    background: var(--dark-blue);
+    color: var(--light-blue);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+}
+
+.cart {
+    background-color: var(--white);
+    color: var(--dark-blue);
+    padding: 0.5rem;
+    font-size: 3rem;
+    border-radius: 4px;
+    position: relative;
+}
+
+.cartAmount {
+    background: rgb(220, 5, 5);
+    font-size: 1.6rem;
+    color: var(--white);
+    position: absolute;
+    top: -1.5rem;
+    right: -1rem;
+    padding: 0.3rem 1rem;
+    border-radius: 3px;
+}
+
+/* START SHOP ITEMS */
+
+.shop {
+    display: grid;
+    grid-template-columns: repeat(4, 223px);
+    gap: 3rem;
+    justify-content: center;
+}
+
+@media (max-width: 1000px) {
+    .shop {
+        grid-template-columns: repeat(2, 223px);
+    }
+}
+
+@media (max-width: 500px) {
+    .shop {
+        grid-template-columns: repeat(1, 223px);
+    }
+}
+
+.item, .item > img {
+    border: 2px solid var(--light-grey);
+    border-radius: 4px;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.price-quantity {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 0.8rem;
+    font-size: 1.6rem;
+}
+
+.buttons i {
+    cursor: pointer;
+}
+
+.bi-dash-lg, .bi-plus-lg {
+    color: var(--medium-orange);
+}
+
+
+
+/* END SHOP ITEMS */
