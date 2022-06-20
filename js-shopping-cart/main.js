@@ -2,7 +2,7 @@ const shop = document.querySelector("#shop");
 
 const shopItemsData = [
     {
-        id: "4523425dsf",
+        id: "a4523425dsf",
         name: "Casual Shirt",
         price: 45,
         desc: "Lorem ipsum...",
@@ -31,6 +31,8 @@ const shopItemsData = [
     },
 ];
 
+let basket = [];
+
 function generateShop() {
     return (shop.innerHTML = shopItemsData.map((item) => {
 
@@ -46,9 +48,9 @@ function generateShop() {
                     <div class="price-quantity">
                         <h2>$${price}</h2>
                         <div class="buttons">
-                            <i onclick="decrement()" class="bi bi-dash-lg"></i>
+                            <i onclick="decrement(${id})" class="bi bi-dash-lg"></i>
                             <div class="quantity" id=${id}>0</div>
-                            <i onclick="increment()" class="bi bi-plus-lg"></i>
+                            <i onclick="increment(${id})" class="bi bi-plus-lg"></i>
                         </div>
                     </div>
                 </div>
@@ -57,13 +59,42 @@ function generateShop() {
     }).join(""));
 };
 
-function increment() {
-    console.log("increment()")
+function increment(id) {
+    const selectedItem = id;
+    
+    let search = basket.find((item) => item.id === selectedItem.id);
+
+    if (search === undefined) {
+        basket.push({
+            id: selectedItem.id,
+            item: 1,
+        })
+    } else {
+        search.item += 1;
+    }
+
+    update(selectedItem.id);
 }
-function decrement() {
-    console.log("decrement()")
+
+function decrement(id) {
+    const selectedItem = id;
+    let search = basket.find((item) => item.id === selectedItem.id);
+
+    if (search.item === 0) return
+    else {
+        search.item -= 1;
+    }
+
+    update(selectedItem.id);
 }
-function update() {}
+
+function update(id) {
+    let search = basket.find((item) => item.id === id);
+
+    document.querySelector(`#${id}`).innerHTML = search.item;
+    
+    
+}
 
 
 generateShop();
