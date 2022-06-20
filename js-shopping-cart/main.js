@@ -46,15 +46,24 @@ function generateShop() {
                     <div class="price-quantity">
                         <h2>$${price}</h2>
                         <div class="buttons">
-                            <i class="bi bi-dash-lg"></i>
+                            <i onclick="decrement()" class="bi bi-dash-lg"></i>
                             <div class="quantity" id=${id}>0</div>
-                            <i class="bi bi-plus-lg"></i>
+                            <i onclick="increment()" class="bi bi-plus-lg"></i>
                         </div>
                     </div>
                 </div>
             </div>
         `
-    }));
+    }).join(""));
 };
+
+function increment() {
+    console.log("increment()")
+}
+function decrement() {
+    console.log("decrement()")
+}
+function update() {}
+
 
 generateShop();
