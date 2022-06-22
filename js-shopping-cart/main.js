@@ -92,8 +92,8 @@ function decrement(id) {
     }
 
     
-    basket = basket.filter((item) => item.item > 0);
     update(selectedItem.id);
+    basket = basket.filter((item) => item.item > 0);
     localStorage.setItem("data", JSON.stringify(basket));
 }
 
