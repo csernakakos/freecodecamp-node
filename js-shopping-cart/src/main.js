@@ -1,38 +1,17 @@
 const shop = document.querySelector("#shop");
 
-const shopItemsData = [
-    {
-        id: "a4523425dsf",
-        name: "Casual Shirt",
-        price: 45,
-        desc: "Lorem ipsum...",
-        img: "images/img-1.jpg"
-    },
-    {
-        id: "dskmv",
-        name: "Office Shirt",
-        price: 100,
-        desc: "Lorem ipsum...",
-        img: "images/img-2.jpg"
-    },
-    {
-        id: "dskmefwv",
-        name: "Jeans",
-        price: 99.4,
-        desc: "Lorem ipsum...",
-        img: "images/img-3.jpg"
-    },
-    {
-        id: "dskmtehv",
-        name: "Coffee",
-        price: 12.5,
-        desc: "Lorem ipsum...",
-        img: "images/img-4.jpg"
-    },
-];
-
 let basket = JSON.parse(localStorage.getItem("data")) || [];
 console.log(basket);
+
+function calculateTotal() {
+    const totalDOM = document.querySelector(".cartAmount");
+
+    const sumOfItems = basket.reduce((sum, item) => {
+        return sum + item.item;
+    }, 0);
+
+    totalDOM.innerHTML = sumOfItems;
+}
 
 function generateShop() {
     return (shop.innerHTML = shopItemsData.map((item) => {
@@ -101,16 +80,6 @@ function update(id) {
     let search = basket.find((item) => item.id === id);
     document.querySelector(`#${id}`).innerHTML = search.item;
     calculateTotal();
-}
-
-function calculateTotal() {
-    const totalDOM = document.querySelector(".cartAmount");
-
-    const sumOfItems = basket.reduce((sum, item) => {
-        return sum + item.item;
-    }, 0);
-
-    totalDOM.innerHTML = sumOfItems;
 }
 
 generateShop();

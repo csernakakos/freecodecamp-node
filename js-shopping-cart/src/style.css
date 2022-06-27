@@ -38,6 +38,11 @@ body {
     margin-bottom: 4rem;
 }
 
+.navbar a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .cart {
     background-color: var(--white);
     color: var(--dark-blue);
@@ -113,6 +118,20 @@ body {
     color: var(--medium-orange);
 }
 
-
-
 /* END SHOP ITEMS */
+
+/* START  */
+.text-center {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.HomeBtn {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    border: none;
+    padding: 0.6rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    margin-top: 10px;
+}
